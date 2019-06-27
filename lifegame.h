@@ -25,7 +25,7 @@ get_cell_state(); вызывает abort() если указаны неправильные координаты */
 void set_cell_state(int x, int y, int state);
 
 /* выводит текущее состояние мира на консоль */
-void display(void);
+void output_world(void);
 
 #endif /* LIFEGAME_H_ */
 

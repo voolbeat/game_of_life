@@ -57,26 +57,6 @@ void set_cell_state(int x, int y, int state) {
 	nextstates[x][y] = state;
 }
 
-void display(void) {
-	char worldstr[2 * WORLDWIDTH + 2];
-	int i, j;
-
-	worldstr[2 * WORLDWIDTH + 1] = '\0';
-	worldstr[0] = '+';
-	for (i = 1; i < 2 * WORLDWIDTH; i++)
-		worldstr[i] = '-';
-	worldstr[2 * WORLDWIDTH] = '+';
-	puts(worldstr);
-	for (i = 0; i <= 2 * WORLDWIDTH; i += 2)
-		worldstr[i] = '|';
-	for (i = 0; i < WORLDHEIGHT; i++) {
-		for (j = 0; j < WORLDWIDTH; j++)
-			worldstr[2 * j + 1] = world[j][i] == ALIVE ? CHAR_ALIVE : CHAR_DEAD;
-		puts(worldstr);
-	}
-	worldstr[0] = '+';
-	for (i = 1; i < 2 * WORLDWIDTH; i++)
-		worldstr[i] = '-';
-	worldstr[2 * WORLDWIDTH] = '+';
-	puts(worldstr);
+void output_world(void) {
+	
 }
