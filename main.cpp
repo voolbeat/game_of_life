@@ -22,7 +22,12 @@ int main(void)
 
 	/* инициализирует мир */
 	initialize_world();
+	for (n = 0; n < NUM_GENERATIONS; n++)
+		next_generation();
 
+	/* выводит финальное состояние мира */
+	display();
+	
 	return 0;
 }
 
@@ -52,14 +57,14 @@ int num_neighbors(int x, int y) {
 }
 
 void next_generation(void) { 
-// получим размеры поля 
-int width = get_world_width(), height = get_world_height(); 
-/* пробежимся по всему полю и установим с помощью функции set_cell_state() 
-для каждой ячейки живая она или мертвая в следующем поколении c помощью функции get_next_state() */ 
-for (int i = 0; i < width; i++) 
-for (int j = 0; j < height; j++) { 
-set_cell_state(i, j, get_next_state(i, j)); 
-} 
-
-finalize_evolution(); 
+	// получим размеры поля 
+	int width = get_world_width(), height = get_world_height(); 
+	/* пробежимся по всему полю и установим с помощью функции set_cell_state() 
+	для каждой ячейки живая она или мертвая в следующем поколении c помощью функции get_next_state() */ 
+	for (int i = 0; i < width; i++) 
+		for (int j = 0; j < height; j++) { 
+			set_cell_state(i, j, get_next_state(i, j)); 
+	} 
+	
+	finalize_evolution(); 
 }
