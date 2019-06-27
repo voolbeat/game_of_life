@@ -27,5 +27,9 @@ void set_cell_state(int x, int y, int state);
 /* выводит текущее состояние мира на консоль */
 void display(void);
 
+/* обновляет состояние мира в соответствии со следующим поколением
+и сбрасывает все состояния следующего поколнеия в DEAD */
+void finalize_evolution(void)
+
 #endif /* LIFEGAME_H_ */
 

@@ -80,3 +80,13 @@ void display(void) {
 	worldstr[2 * WORLDWIDTH] = '+';
 	puts(worldstr);
 }
+
+void finalize_evolution(void) {
+	int x, y;
+	for (x = 0; x < WORLDWIDTH; x++) {
+		for (y = 0; y < WORLDHEIGHT; y++) {
+			world[x][y] = nextstates[x][y];
+			nextstates[x][y] = DEAD;
+		}
+	}
+}
