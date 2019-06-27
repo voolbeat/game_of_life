@@ -1,0 +1,31 @@
+#ifndef LIFEGAME_H_
+#define LIFEGAME_H_
+
+/* константы состояний */
+#define DEAD 0
+#define ALIVE 1
+
+/* initialize_world -- установка мира, все ячейки текущего мира инициализируются
+живыми (ALIVE) или мертвыми (DEAD); все ячейки следующего поколения
+инициализируются мертвыми (DEAD) */
+void initialize_world(void);
+
+/* возвращают ширину (width) и высоту (height) мира */
+int get_world_width(void);
+int get_world_height(void);
+
+/* возвращает состояние (живая или мертвая) ячейки с координатами (x,y) из текущего мира;
+где x = 0,...,width-1 и y = 0,...,height-1; возвращает мертвый (DEAD)
+для ячеек вне этого диапазона */
+int get_cell_state(int x, int y);
+
+/* устанавливает состояние ячейки (живая или мертвая) в позиции (x,y) в
+следующем поколении; диапазон значений координат такой же, как и в
+get_cell_state(); вызывает abort() если указаны неправильные координаты */
+void set_cell_state(int x, int y, int state);
+
+/* выводит текущее состояние мира на консоль */
+void output_world(void);
+
+#endif /* LIFEGAME_H_ */
+
